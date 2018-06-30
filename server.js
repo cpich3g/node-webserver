@@ -3,7 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 var app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 var maintenanceMode = 0;
 var currentTime = `${new Date().getHours()}:${new Date().getMinutes()}`;
 
@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
     // res.send('<h1> Hello Express! </h1>');
     res.render('home.hbs', {
         pageTitle: 'Home Page',
-        welcomeMessage: `Welcome! `,
+        welcomeMessage: `Welcome to my Node Server! `,
         currentTime: `Server Time: ${currentTime}`
     });
 });
