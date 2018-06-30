@@ -5,6 +5,8 @@ const fs = require('fs');
 var app = express();
 const port = process.env.PORT || 3001;
 var maintenanceMode = 0;
+var currentTime = `${new Date().getHours()}:${new Date().getMinutes()}`;
+
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
@@ -44,13 +46,20 @@ app.get('/', (req, res) => {
     // res.send('<h1> Hello Express! </h1>');
     res.render('home.hbs', {
         pageTitle: 'Home Page',
-        welcomeMessage: `Welcome! Time is ${new Date().getHours()}:${new Date().getMinutes()}`,
+        welcomeMessage: `Welcome! `,
+        currentTime: `Server Time: ${currentTime}`
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'My Projects'
     });
 });
 
